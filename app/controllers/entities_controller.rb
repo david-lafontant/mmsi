@@ -65,6 +65,6 @@ class EntitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entity_params
-      params.expect(entity: [ :category, :owner, :registration_number, :operation_area, :station_id, :adress, :municipality, :latitude, :longitude, :company_name, :owner_id_type, :owner_id_number, :first_name, :last_name, :email, :telephone, :mmsi, :status, documents: [] ])
+      params.expect(entity: [ :category, :owner, :registration_number, :operation_area, :station_id, :adress, :municipality, :latitude, :longitude, :company_name, :owner_id_type, :owner_id_number, :first_name, :last_name, :email, :telephone, :status, documents: [] ])
     end
 end
