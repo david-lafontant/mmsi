@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :entities
   resources :stations
   devise_for :users
   get "/about", to: "pages#about", as: :about

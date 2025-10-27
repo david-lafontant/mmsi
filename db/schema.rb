@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_27_202138) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_27_204437) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "category", ["vessel", "station"]
+  create_enum "owner", ["individual", "company"]
+  create_enum "owner_id_type", ["nif", "ninu", "passport"]
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +58,30 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_27_202138) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "entities", force: :cascade do |t|
+    t.enum "category", default: "vessel", null: false, enum_type: "category"
+    t.enum "owner", default: "company", null: false, enum_type: "owner"
+    t.string "registration_number"
+    t.string "operation_area"
+    t.bigint "station_id", null: false
+    t.string "adress"
+    t.string "municipality"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "company_name"
+    t.enum "owner_id_type", default: "nif", null: false, enum_type: "owner_id_type"
+    t.string "owner_id_number"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "telephone"
+    t.string "mmsi"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["station_id"], name: "index_entities_on_station_id"
+  end
+
   create_table "stations", force: :cascade do |t|
     t.string "category"
     t.datetime "created_at", null: false
@@ -72,4 +102,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_27_202138) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "entities", "stations"
 end
