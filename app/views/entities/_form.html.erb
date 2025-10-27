@@ -1,0 +1,109 @@
+<%= form_with(model: entity) do |form| %>
+  <% if entity.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
+      <ul>
+        <% entity.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <div class="form-check">
+      <%= form.label :category, value: "vessel", class: "form-check-label"  %>
+      <%= form.radio_button :category, "vessel", class: "form-check-inpu" %>
+    </div>
+    <div class="form-check">
+      <%= form.label :category, value: "station", class: "form-check-label"%>
+      <%= form.radio_button :category, "station", class: "form-check-inpu"%>
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="form-check">
+      <%= form.label :owner, value: "company", class: "form-check-label" %>
+      <%= form.radio_button :owner, "company", class: "form-check-input" %>
+    </div>
+    <div class="form-check">
+      <%= form.label :owner, value: "individual", class: "form-check-label" %>
+      <%= form.radio_button :owner, "individual", class: "form-check-input"%>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :registration_number, class: "input-group-text" %>
+    <%= form.text_field :registration_number, class: "form-control" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :operation_area, class: "input-group-text" %>
+    <%= form.text_field :operation_area, class: "form-control" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :station_id, class: "input-group-text" %>
+    <%= form.collection_select :station_id, Station.all, :id, :category, prompt: true, class: "form-control"%>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :adress, class: "input-group-text" %>
+    <%= form.text_field :adress, class: "form-control" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :municipality, class: "input-group-text" %>
+    <%= form.text_field :municipality, class: "form-control" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :latitude, class: "input-group-text" %>
+    <%= form.text_field :latitude, class: "form-control" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :longitude, class: "input-group-text" %>
+    <%= form.text_field :longitude, class: "form-control" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :company_name, class: "input-group-text" %>
+    <%= form.text_field :company_name, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <div class="form-check">
+      <%= form.label :owner_id_type, value: "nif", class: "form-check-label" %>
+      <%= form.radio_button :owner_id_type, "nif", class: "form-check-input" %>
+    </div>
+    <div class="form-check">
+      <%= form.label :owner_id_type, value: "ninu", class: "form-check-label" %>
+      <%= form.radio_button :owner_id_type, "ninu", class: "form-check-input"%>
+    </div>
+    <div class="form-check">
+      <%= form.label :owner_id_type, value: "passport", class: "form-check-label" %>
+      <%= form.radio_button :owner_id_type, "passport", class: "form-check-input" %>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :owner_id_number, class: "input-group-text" %>
+    <%= form.text_field :owner_id_number, class: "form-control" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :first_name, class: "input-group-text" %>
+    <%= form.text_field :first_name, class: "form-control" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :last_name, class: "input-group-text" %>
+    <%= form.text_field :last_name, class: "form-control" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :email, class: "input-group-text" %>
+    <%= form.email_field :email, class: "form-control" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :telephone, class: "input-group-text" %>
+    <%= form.telephone_field :telephone, class: "form-control" %>
+  </div>
+  <div class="form-check form-switch mb-3">
+    <%= form.checkbox :status, class: "form-check-input" %>
+    <%= form.label :status, class: "form-check-label" %>
+  </div>
+  <div class="input-group mb-3">
+    <%= form.label :documents, class: "input-group-text" %>
+    <%= form.file_field :documents, multiple: true, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,99 @@
+<div id="<%= dom_id entity %>">
+  <p>
+    <strong>Category:</strong>
+    <%= entity.category %>
+  </p>
+
+  <p>
+    <strong>Owner:</strong>
+    <%= entity.owner %>
+  </p>
+
+  <p>
+    <strong>Registration number:</strong>
+    <%= entity.registration_number %>
+  </p>
+
+  <p>
+    <strong>Operation area:</strong>
+    <%= entity.operation_area %>
+  </p>
+
+  <p>
+    <strong>Station:</strong>
+    <%= entity.station_id %>
+  </p>
+
+  <p>
+    <strong>Adress:</strong>
+    <%= entity.adress %>
+  </p>
+
+  <p>
+    <strong>Municipality:</strong>
+    <%= entity.municipality %>
+  </p>
+
+  <p>
+    <strong>Latitude:</strong>
+    <%= entity.latitude %>
+  </p>
+
+  <p>
+    <strong>Longitude:</strong>
+    <%= entity.longitude %>
+  </p>
+
+  <p>
+    <strong>Company name:</strong>
+    <%= entity.company_name %>
+  </p>
+
+  <p>
+    <strong>Owner id type:</strong>
+    <%= entity.owner_id_type %>
+  </p>
+
+  <p>
+    <strong>Owner id number:</strong>
+    <%= entity.owner_id_number %>
+  </p>
+
+  <p>
+    <strong>First name:</strong>
+    <%= entity.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= entity.last_name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= entity.email %>
+  </p>
+
+  <p>
+    <strong>Telephone:</strong>
+    <%= entity.telephone %>
+  </p>
+
+  <p>
+    <strong>Mmsi:</strong>
+    <%= entity.mmsi %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= entity.status %>
+  </p>
+
+  <p>
+    <strong>Documents:</strong>
+    <% entity.documents.each do |document| %>
+      <div><%= link_to document.filename, document %></div>
+    <% end %>
+  </p>
+
+</div>
