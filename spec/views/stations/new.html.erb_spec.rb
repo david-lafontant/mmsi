@@ -11,7 +11,6 @@ RSpec.describe "stations/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", stations_path, "post" do
-
       assert_select "input[name=?]", "station[category]"
     end
   end

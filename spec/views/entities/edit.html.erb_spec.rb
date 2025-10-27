@@ -33,7 +33,6 @@ RSpec.describe "entities/edit", type: :view do
     render
 
     assert_select "form[action=?][method=?]", entity_path(entity), "post" do
-
       assert_select "input[name=?]", "entity[category]"
 
       assert_select "input[name=?]", "entity[owner]"

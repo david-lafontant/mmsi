@@ -29,7 +29,6 @@ RSpec.describe "entities/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", entities_path, "post" do
-
       assert_select "input[name=?]", "entity[category]"
 
       assert_select "input[name=?]", "entity[owner]"

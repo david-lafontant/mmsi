@@ -13,7 +13,6 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/entities", type: :request do
-  
   # This should return the minimal set of attributes required to create a valid
   # Entity. As you add validations to Entity, be sure to
   # adjust the attributes here as well.
