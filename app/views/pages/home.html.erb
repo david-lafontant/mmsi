@@ -1,6 +1,12 @@
-<div class="pages">
-  <div class="row">
-    <h1>Pages#home</h1>
-    <p>Find me in app/views/pages/home.html.erb</p>
+<% content_for :title, "Systeme de gestion MMSI" %>
+<div class="container my-5">
+  <div class="p-5 text-center bg-body-tertiary rounded-3">
+    <h1 class="text-body-emphasis">Systeme de Gestion des MMSI</h1>
+    <p class="lead">
+      <%= link_to "Generer MMSI", new_entity_path, class: "button-30", id: "generer" %>
+      <%= link_to "Liste des MMSI", entities_path, class: "button-30", id: "lister" %>
+      <%= link_to "Liste des Stations", stations_list_path, class: "button-30", id: "stations" %>
+      <%= link_to "Liste des Navires", vessels_list_path, class: "button-30", id: "navires" %>
+    </p>
   </div>
 </div>

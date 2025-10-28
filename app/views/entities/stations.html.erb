@@ -1,0 +1,53 @@
+<p style="color: green"><%= notice %></p>
+<% content_for :title, "Stations" %>
+<h1>Stations</h1>
+<%= link_to "Back to entities", entities_path, class: "btn btn-success mb-3" %>
+<div id="stations">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Owner</th>
+        <th scope="col">Registration number</th>
+        <th scope="col">MMSI</th>
+        <th scope="col">Station type</th>
+        <th scope="col">Status</th>
+        <th scope="col">Operation area</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @stations.each do |entity| %>
+        <tr>
+          <td>
+            <%= entity.category %>
+          </td>
+          <td>
+            <% if entity.owner == "company"%>
+              <%= entity.company_name %>
+            <% else %>
+              <%= entity.first_name %> <%= entity.last_name%>
+            <%end%>
+          </td>
+          <td>
+            <%= entity.registration_number %>
+          </td>
+          <td>
+            <%= entity.mmsi %>
+          </td>
+          <td>
+            <%= entity.station_category(entity.station_id) %>
+          </td>
+          <td>
+            <%= entity.status %>
+          </td>
+          <td>
+            <%= entity.operation_area %>
+          </td>
+          <td>
+            <%= link_to "Show this entity", entity %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
