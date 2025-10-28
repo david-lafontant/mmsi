@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :stations
   devise_for :users
   get "/about", to: "pages#about", as: :about
+  get "stations_list", to: "entities#stations", as: :stations_list
+  get "vessels_list", to: "entities#vessels", as: :vessels_list
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
