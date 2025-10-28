@@ -1,11 +1,10 @@
-<% content_for :title, "New entity" %>
-
-<h1>New entity</h1>
-
-<%= render "form", entity: @entity %>
-
-<br>
-
+<% content_for :title, "Nouveau MMSI" %>
 <div>
-  <%= link_to "Back to entities", entities_path %>
+  <%= link_to "Back to entities", entities_path , class: "btn btn-primary mt-3" %>
+</div>
+<h1 class="lead m-3">Generer MMSI</h1>
+<%= render "form", entity: @entity %>
+<br>
+<div>
+  <%= link_to "Back to entities", entities_path , class: "btn btn-primary" %>
 </div>
