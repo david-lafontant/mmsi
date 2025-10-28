@@ -1,99 +1,120 @@
-<div id="<%= dom_id entity %>">
-  <p>
-    <strong>Category:</strong>
-    <%= entity.category %>
-  </p>
-
-  <p>
-    <strong>Owner:</strong>
-    <%= entity.owner %>
-  </p>
-
-  <p>
-    <strong>Registration number:</strong>
-    <%= entity.registration_number %>
-  </p>
-
-  <p>
-    <strong>Operation area:</strong>
-    <%= entity.operation_area %>
-  </p>
-
-  <p>
-    <strong>Station:</strong>
-    <%= entity.station_id %>
-  </p>
-
-  <p>
-    <strong>Adress:</strong>
-    <%= entity.adress %>
-  </p>
-
-  <p>
-    <strong>Municipality:</strong>
-    <%= entity.municipality %>
-  </p>
-
-  <p>
-    <strong>Latitude:</strong>
-    <%= entity.latitude %>
-  </p>
-
-  <p>
-    <strong>Longitude:</strong>
-    <%= entity.longitude %>
-  </p>
-
-  <p>
-    <strong>Company name:</strong>
-    <%= entity.company_name %>
-  </p>
-
-  <p>
-    <strong>Owner id type:</strong>
-    <%= entity.owner_id_type %>
-  </p>
-
-  <p>
-    <strong>Owner id number:</strong>
-    <%= entity.owner_id_number %>
-  </p>
-
-  <p>
-    <strong>First name:</strong>
-    <%= entity.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= entity.last_name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= entity.email %>
-  </p>
-
-  <p>
-    <strong>Telephone:</strong>
-    <%= entity.telephone %>
-  </p>
-
-  <p>
-    <strong>Mmsi:</strong>
-    <%= entity.mmsi %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= entity.status %>
-  </p>
-
-  <p>
-    <strong>Documents:</strong>
-    <% entity.documents.each do |document| %>
-      <div><%= link_to document.filename, document %></div>
-    <% end %>
-  </p>
-
+<div id="<%= dom_id entity %>" class="card">
+  <div class="card-body">
+    <% if !entity.category.blank? %>
+      <p class="card-text">
+        <strong>Category:</strong>
+        <%= entity.category %>
+      </p>
+    <%end%>
+    <% if !entity.owner.blank? %>
+      <p class="card-text">
+        <strong>Owner:</strong>
+        <%= entity.owner %>
+      </p>
+    <%end%>
+    <% if !entity.registration_number.blank? %>
+      <p class="card-text">
+        <strong>Registration number:</strong>
+        <%= entity.registration_number %>
+      </p>
+    <%end%>
+    <% if !entity.operation_area.blank? %>
+      <p class="card-text">
+        <strong>Operation area:</strong>
+        <%= entity.operation_area %>
+      </p>
+    <%end%>
+    <% if !entity.station_id.blank? %>
+      <p class="card-text">
+        <strong>Station:</strong>
+        <%= entity.station_id %>
+      </p>
+    <%end%>
+    <% if !entity.adress.blank? %>
+      <p class="card-text">
+        <strong>Adress:</strong>
+        <%= entity.adress %>
+      </p>
+    <%end%>
+    <% if !entity.municipality.blank? %>
+      <p class="card-text">
+        <strong>Municipality:</strong>
+        <%= entity.municipality %>
+      </p>
+    <%end%>
+    <% if !entity.latitude.blank? %>
+      <p class="card-text">
+        <strong>Latitude:</strong>
+        <%= entity.latitude %>
+      </p>
+    <%end%>
+    <% if !entity.longitude.blank? %>
+      <p class="card-text">
+        <strong>Longitude:</strong>
+        <%= entity.longitude %>
+      </p>
+    <%end%>
+    <% if !entity.company_name.blank? %>
+      <p class="card-text">
+        <strong>Company name:</strong>
+        <%= entity.company_name %>
+      </p>
+    <%end%>
+    <% if !entity.owner_id_type.blank? %>
+      <p class="card-text">
+        <strong>Owner id type:</strong>
+        <%= entity.owner_id_type %>
+      </p>
+    <%end%>
+    <% if !entity.owner_id_number.blank? %>
+      <p class="card-text">
+        <strong>Owner id number:</strong>
+        <%= entity.owner_id_number %>
+      </p>
+    <%end%>
+    <% if !entity.first_name.blank? %>
+      <p class="card-text">
+        <strong>First name:</strong>
+        <%= entity.first_name %>
+      </p>
+    <%end%>
+    <% if !entity.last_name.blank? %>
+      <p class="card-text">
+        <strong>Last name:</strong>
+        <%= entity.last_name %>
+      </p>
+    <%end%>
+    <% if !entity.email.blank? %>
+      <p class="card-text">
+        <strong>Email:</strong>
+        <%= entity.email %>
+      </p>
+    <%end%>
+    <% if !entity.telephone.blank? %>
+      <p class="card-text">
+        <strong>Telephone:</strong>
+        <%= entity.telephone %>
+      </p>
+    <%end%>
+    <% if !entity.mmsi.blank? %>
+      <p class="card-text">
+        <strong>Mmsi:</strong>
+        <%= entity.mmsi %>
+      </p>
+    <%end%>
+    <% if !entity.status.blank? %>
+      <p class="card-text">
+        <strong>Status:</strong>
+        <%= entity.status %>
+      </p>
+    <%end%>
+    <% if !entity.documents.blank? %>
+      <p class="card-text">
+        <strong>Documents:</strong>
+        <% entity.documents.each do |document| %>
+          <div><%= link_to document.filename, document %></div>
+        <% end %>
+      </p>
+    <%end%>
+  </div>
 </div>
