@@ -6,6 +6,14 @@ class EntitiesController < ApplicationController
     @entities = Entity.all
   end
 
+  def vessels
+    @vessels = Entity.where(category: :vessel)
+  end
+
+  def stations
+    @stations = Entity.where(category: :station)
+  end
+
   # GET /entities/1 or /entities/1.json
   def show
   end
