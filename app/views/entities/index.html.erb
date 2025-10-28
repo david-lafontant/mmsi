@@ -1,16 +1,60 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Entities" %>
-
-<h1>Entities</h1>
-
-<div id="entities">
-  <% @entities.each do |entity| %>
-    <%= render entity %>
-    <p>
-      <%= link_to "Show this entity", entity %>
-    </p>
-  <% end %>
+<% if !notice.blank? %>
+  <p style="color: green"><%= notice %></p>
+<%end%>
+<div class = "row">
+  <h1>Tableau Central</h1>
+  <div class="mb-3">
+    <%= link_to "New entity", new_entity_path, class: "btn btn-primary" %>
+    <%= link_to "Liste des Stations", stations_list_path, class: "button-30", id: "navire" %>
+    <%= link_to "Liste des Navires", vessels_list_path, class: "button-30", id: "stations" %>
+  </div>
 </div>
-
-<%= link_to "New entity", new_entity_path %>
+<div class="row">
+  <div class="col" id="entities">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Category</th>
+          <th scope="col">Owner</th>
+          <th scope="col">Registration number</th>
+          <th scope="col">MMSI</th>
+          <th scope="col">Status</th>
+          <th scope="col">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @entities.each do |entity| %>
+          <td>
+            <%= entity.category %>
+          </td>
+          <td>
+            <% if entity.owner == "company"%>
+              <%= entity.company_name %>
+            <% else %>
+              <%= entity.first_name %> <%= entity.last_name%>
+            <%end%>
+          </td>
+          <td>
+            <%= entity.registration_number %>
+          </td>
+          <td>
+            <%= entity.mmsi %>
+          </td>
+          <td>
+            <%= entity.status %>
+          </td>
+          <td>
+            <%= link_to "Show this entity", entity, class: "btn btn-success" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <%= link_to "New entity", new_entity_path, class: "btn btn-primary" %>
+  </div>
+</div>
